@@ -1,0 +1,78 @@
+This code is for css autocomplete
+.autocompleteResults {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            width: calc(100% - 2px); /* Adjust the width as needed */
+        }
+
+        .autocompleteItem {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocompleteItem:hover {
+            background-color: #f9f9f9;
+        }
+        ==================================================================================================================================
+        This is html code 
+        <label for="pickupLocation">Pickup Location</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Enter Pickup Location" required>
+            <div id="pickupResults" class="autocompleteResults"></div>
+
+            <label for="dropLocation">Drop Location</label>
+            <input type="text" id="dropLocation" name="dropLocation" placeholder="Enter Drop Location" required>
+            <div id="dropResults" class="autocompleteResults"></div>
+        =================================================================================================================================
+        async function fetchAutocomplete(inputField, resultsContainer) {
+  const input = inputField.value;
+  const url = `https://google-maps-api-free.p.rapidapi.com/google-autocomplete?input=${encodeURIComponent(input)}`;
+  const options = {
+      method: 'GET',
+      headers: {
+          'X-RapidAPI-Key': '4383b5f8bcmsh52504d26a8b91aep1d1525jsn0ec73ee188a9',
+          'X-RapidAPI-Host': 'google-maps-api-free.p.rapidapi.com'
+      }
+  };
+
+  try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      showAutocompleteResults(data.predictions, resultsContainer, inputField); // Pass inputField to showAutocompleteResults
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+function showAutocompleteResults(predictions, resultsContainer, inputField) {
+  const autocompleteResults = resultsContainer;
+  autocompleteResults.innerHTML = '';
+
+  predictions.forEach(prediction => {
+      const suggestion = document.createElement('div');
+      suggestion.classList.add('autocompleteItem');
+      suggestion.textContent = prediction.description;
+      suggestion.addEventListener('click', () => {
+          inputField.value = prediction.description;
+          autocompleteResults.style.display = 'none';
+      });
+      autocompleteResults.appendChild(suggestion);
+  });
+
+  autocompleteResults.style.display = 'block';
+}
+
+const pickupInputField = document.getElementById('pickupLocation');
+const pickupResultsContainer = document.getElementById('pickupResults');
+pickupInputField.addEventListener('input', () => fetchAutocomplete(pickupInputField, pickupResultsContainer));
+
+const dropInputField = document.getElementById('dropLocation');
+const dropResultsContainer = document.getElementById('dropResults');
+dropInputField.addEventListener('input', () => fetchAutocomplete(dropInputField, dropResultsContainer));
+========================================================================================================================================
+<script src="autocomplete.js"></script> API name:-Google Maps API Free (Rapid API ) email- singhekansh11@gmail.com
+
+
+ //<script src="distanceCalculator.js"></script>
