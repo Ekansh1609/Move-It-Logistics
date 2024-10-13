@@ -1,0 +1,186 @@
+<% console.log("Rendering checkoutpage.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .btn-checkout {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+    }
+    header {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      
+    }
+    .header-title{
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 4rem;
+      font-weight: bold; 
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2 class="header-title ">Welcome! <%= user %>!</h2>
+  </header>
+  <div class="container">
+    <h2 class="mb-4">Checkout</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form action="/checkoutpage" method="post" >
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="fullName"  value="<%= userDetails.name %>" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= userDetails.email %>" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="pickup">PickupLocation</label>
+            <input class="form-control" id="pickup"  rows="3" name="pickup" value="<%= userDetails.pickup %>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="drop">DropLocation</label>
+            <input class="form-control" id="drop"  rows="3" name="drop" value="<%= userDetails.drop %>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input class="form-control" id="date"  rows="3" name="date" value="<%= new Date(userDetails.date).toLocaleDateString() %>" readonly>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="phone">Phone Number</label>
+              <input type="text" class="form-control" id="phone" name="phone" value="<%= userDetails.phone_no %>" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="distance">Distance</label>
+              <input type="text" class="form-control" id="distance" name="distance" value="<%= userDetails.distance %>" readonly>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Payment Options</h5>
+              <hr>
+  
+              <!-- Payment options here -->
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentOption" id="creditCard" checked>
+                <label class="form-check-label" for="creditCard">Online Payment</label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentOption" id="paypal">
+                <label class="form-check-label" for="paypal">Cash</label>
+              </div>
+  
+              <!-- Additional payment options can be added -->
+  
+              <!-- Payment form for selected option -->
+              <div id="creditCardForm">
+                <div class="form-group">
+                  <label for="cardNumber">Online payment is Not Available Now</label>
+                  <input type="text" class="form-control" id="cardNumber" placeholder="We do Accept any kind of Online payment Physically" readonly>
+                </div>
+  
+                
+              </div>
+  
+              <!-- Additional payment forms can be added -->
+              <label for="cost">Total Cost</label>
+              
+              <input type="text" class="form-control" id="cost" value="<%= total_cost %>" readonly>
+  
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-checkout">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Total Number of Item selected</h2>
+            <hr>
+
+            <!-- Payment options here -->
+            <div class="form-check">
+              <label for="electronic">Total Number Electronic Items</label>
+              <input type="text" class="form-control" id="electronic" readonly value="<%= userDetails.total_ele %>">
+            </div>
+
+            <div class="form-check">
+              <label for="furniture">Total Number Furnitures </label>
+              <input type="text" class="form-control" id="furniture" readonly value="<%= userDetails.total_fur %>">
+            </div>
+
+            <!-- Additional payment options can be added -->
+
+            
+
+            <!-- Additional payment forms can be added -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Your custom script to show/hide payment forms based on the selected option -->
+  <script>
+    $(document).ready(function () {
+      $("input[name='paymentOption']").change(function () {
+        var selectedOption = $("input[name='paymentOption']:checked").attr("id");
+
+        // Hide all payment forms
+        $("[id$='Form']").hide();
+
+        // Show the selected payment form
+        $("#" + selectedOption + "Form").show();
+      });
+    });
+  </script>
+</body>
+
+</html>

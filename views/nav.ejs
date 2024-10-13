@@ -1,0 +1,86 @@
+<% console.log("Rendering nav.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="/styles/main.css">
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+
+    <style>
+        .abc{
+            cursor: pointer;
+            border: 1px solid #555;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px; 
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+        #Log{
+            font-size: 1rem;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"> <img src="/images/box-seam.svg" height="30px" alt=""> <a href="#">Move It<h4 id="Log">Logistics</h4></a></span>
+    
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="/index">Move It<h4 id="Log">Logistics</h4></a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+    
+                <ul class="nav-links">
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/delivery">Delivery Patner</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="mailto:infernoekansh@gmail.com">Contact</a></li>
+                    <li><a href="/changepassword">Change Password</a></li>
+                </ul>
+            </div>
+    
+            
+                <button class="btn btn-outline-light" onclick="myFunction()"><img src="/images/moon-stars.svg" height="15px" width="15px" alt=""></button> 
+     
+    <script>
+        function myFunction() {
+            let element = document.body;
+            element.classList.toggle("dark");
+        }
+    </script>
+                
+    
+                
+    <a class="btn btn-light " href="/logout" role="button">Log Out</a>
+    <!--<div class="searchBox">-->
+        <div class="searchToggle">
+        <!--<i class='bx bx-x cancel'></i>--> 
+         <!--<i class='bx bx-search search'></i>-->
+        </div>
+        <!--<div class="search-field">
+             <input type="text" placeholder="Search...">
+             <i class='bx bx-search'></i>
+         </div>-->
+         
+     </div>
+    </nav>
+    <script src="/script.js"></script>
+    
+</body>
+</html>

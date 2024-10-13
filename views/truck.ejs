@@ -1,0 +1,124 @@
+<% console.log("Rendering truck.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+      <!-- ===== CSS ===== -->
+      
+      
+    
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      
+    
+      <style>
+        .gradient-background {
+          background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+          background-size: 180% 180%;
+          animation: gradient-animation 18s ease infinite;
+          margin-top: 0;
+        }
+        
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body{
+  background-color: #48dbfb;
+background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%);
+
+}
+
+
+      </style>
+</head>
+<body>
+   
+    <%- include("nav.ejs") %>
+    
+    <!-- Your main file -->
+
+<section id="title" class="gradient-background" >
+  <div class="container-fluid px-4 pt-5 gradient-background"> <!-- Change class to container-fluid -->
+    <div class="row flex-lg-row-reverse align-items-center g-5 pt-5 gradient-background">
+      <div class="col-10 col-sm-8 col-lg-6" >
+        <%- include("truckmenu.ejs") %> <!--for truck delivery site site-->
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Convenient Mini Truck Online Booking in Lucknow</h1>
+        <p style="font-size: 1.3rem;">Looking for a reliable and affordable online truck booking service in Lucknow?
+             With competitive rates and flexible truck rental options, Porter has got you covered.
+
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="# abc" type="button" class="btn btn-light btn-lg px-4 me-md-2">FIND OUT MORE!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="container " style="background-color: #48dbfb;background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%);" >
+      <h3 class="display-5 fw-bold text-body-emphasis text-center" style="margin-bottom: 40px;"  id=" abc">Two-Wheelers from Move It</h3>
+
+        
+      <div class="col-lg-4  mx-auto text-center" >
+        <img class=" mx-auto d-block" src="/images/smalltruck.svg" alt="Generic placeholder image" width="140" height="140">
+        <h2 class="fw-normal">Light (Below 750 kg)</h2>
+        
+        <p>Starting from ₹230 <br>PickUP 7feet</p>
+        <p><a class="btn btn-secondary" href="#title">Know MORE »</a></p>
+      </div>
+       <div class="col-lg-4  mx-auto text-center" >
+        <img class=" mx-auto d-block" src="/images/heavytruck.svg" alt="Generic placeholder image" width="140" height="140">
+        <h2 class="fw-normal">Heavy (Above 750 kg)</h2>
+        
+        <p>Starting from ₹300 <br>PickUP 8feet</p>
+        <p><a class="btn btn-secondary" href="#title">Know MORE »</a></p>
+      </div>
+    
+    </section>
+      <!--use container-fluid so that it could fit on full screen-->
+    <section class="container-fluid " id="services" style="background-color: #48dbfb;
+    background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%);
+    ">
+      <h1 class="display-5 fw-bold text-body-emphasis text-center" style="margin-bottom: 50px;">Other Services TO Choose From</h1>
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="rounded-circle mx-auto d-block" src="/images/packets.svg" alt="Generic placeholder image" width="140" height="140">
+          <h2 style="margin-top: 40px;" class="text-center">Packer & Mover</h2>
+          
+          <p class="text-center"><a class="btn btn-secondary" href="/mover" target="_blank" role="button" style="margin-top: 40px;">GET A Estimate</a></p>
+        </div><!-- /.col-lg-4 -->
+        
+            <div class="col-lg-6">
+              <img class="rounded-circle" src="/images/bike.svg" alt="Generic placeholder image" width="140" height="140">
+              <h2 style="margin-top: 40px;">Two wheelers</h2>
+              
+              <p><a class="btn btn-secondary"href="/twowheeler" target="_blank"role="button" style="margin-top: 40px;">GET A Estimate</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div>
+    </section>
+    
+    <section>
+      <%- include("footer.ejs") %>
+    </section>
+  
+    
+    
+</body>
+</html>

@@ -1,0 +1,169 @@
+<% console.log("Rendering quantity.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Quantity Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: #48dbfb;
+            background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%);
+        }
+        a {
+            text-decoration: none;
+          }
+    </style>
+</head>
+<body>
+    <section>
+        <nav class="navbar bg-body-primary">
+            <div class="container-fluid">
+              <span class="navbar-brand mb-0 h1 text-center">Navbar</span>
+            </div>
+          </nav>
+    </section>
+<section>
+<div class="container mt-5" id="fur">
+    <form action="furniture" method="post" >
+        <h1 class="text-center">Furnitures</h1>
+        <hr>
+        <div class="form-row">
+            
+             <!-- Item 1 -->
+             <div class="form-group col-md-6">
+                <label for="item1">Sofa </label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 1">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity1">Quantity</label>
+                <input type="number" class="form-control" id="quantity1" name="quantity1" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 2 -->
+             <div class="form-group col-md-6">
+                <label for="item2">Bed </label>
+                <input type="text" class="form-control" id="item2" readonly value="Item Name 2">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity2">Quantity</label>
+                <input type="number" class="form-control" id="quantity2" name="quantity2" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 3 -->
+             <div class="form-group col-md-6">
+                <label for="item3">Mattress</label>
+                <input type="text" class="form-control" id="item3" readonly value="Item Name 3 ">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity3">Quantity</label>
+                <input type="number" class="form-control" id="quantity3" name="quantity3" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 4 -->
+             <div class="form-group col-md-6">
+                <label for="item4">Almirah/Wardrobe </label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 4">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity4">Quantity</label>
+                <input type="number" class="form-control" id="quantity4" name="quantity4" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+            <!-- Item 5-->
+            <div class="form-group col-md-6">
+                <label for="item5">Chairs/Tables </label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 5">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity5">Quantity</label>
+                <input type="number" class="form-control" id="quantity5" name="quantity5" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+            
+            <!-- Item 6-->
+            <div class="form-group col-md-6">
+                <label for="item6">Accessories </label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 6">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity6">Quantity</label>
+                <input type="number" class="form-control" id="quantity6" name="quantity6" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+            
+
+        </div>
+        <button type="submit" class="btn btn-primary" >Next</button>
+    </form>
+</div>
+</section>
+<section class="container" id="ele">
+    <form action="electronic" method="post"  >
+        <h1 class="text-center">Electronic Appliances</h1>
+        <hr>
+        <div class="form-row">
+            
+          
+             <!-- Item 1 -->
+             <div class="form-group col-md-6">
+                <label for="item1">Television </label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 1">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity1">Quantity</label>
+                <input type="number" class="form-control" id="quantity7" name="quantity1" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 2 -->
+             <div class="form-group col-md-6">
+                <label for="item2">Fridge</label>
+                <input type="text" class="form-control" id="item2" readonly value="Item Name 2">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity2">Quantity</label>
+                <input type="number" class="form-control" id="quantity8" name="quantity2" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 3 -->
+             <div class="form-group col-md-6">
+                <label for="item3">Ac</label>
+                <input type="text" class="form-control" id="item3" readonly value="Item Name 3 ">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity3">Quantity</label>
+                <input type="number" class="form-control" id="quantity9" name="quantity3" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+             <!-- Item 4 -->
+             <div class="form-group col-md-6">
+                <label for="item4">Kitchen Appliances</label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 4">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity4">Quantity</label>
+                <input type="number" class="form-control" id="quantity10" name="quantity4" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+            <!-- Item 5-->
+            <div class="form-group col-md-6">
+                <label for="item5">Fan</label>
+                <input type="text" class="form-control" id="item1" readonly value="Item Name 5">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity5">Quantity</label>
+                <input type="number" class="form-control" id="quantity11" name="quantity5" placeholder="Enter quantity Between 0-100" min="0" max="100" required>
+            </div>
+            
+
+        </div>
+        <button type="submit" class="btn btn-primary" >Next</button>
+    </form>
+</section>
+
+
+
+
+
+  <!-- Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  
+  
+  </body>
+  </html>
+  

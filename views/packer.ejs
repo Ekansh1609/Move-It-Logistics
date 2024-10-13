@@ -1,0 +1,130 @@
+<% console.log("Rendering packer.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <style>
+       
+
+        .container {
+           max-width: 600px;
+           height: max-content;
+            
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            
+            
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            text-decoration: none;
+          }
+        .autocompleteResults {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            width: calc(100% - 2px); /* Adjust the width as needed */
+        }
+
+        .autocompleteItem {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocompleteItem:hover {
+            background-color: #f9f9f9;
+        }
+       
+    </style>
+</head>
+<body>
+    
+<section >
+    <div class="container">
+        <h2 class="text-center">Book Now</h2>
+        <hr><br>
+        <form action="/packer" method="post">
+            
+            
+            
+            
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"placeholder="Name" placeholder="Enter your Full name" required>
+            <label for="pickupLocation">Pickup Location</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Enter Pickup Location" required>
+            <div id="pickupResults" class="autocompleteResults"></div>
+
+            <label for="dropLocation">Drop Location</label>
+            <input type="text" id="dropLocation" name="dropLocation" placeholder="Enter Drop Location" required>
+            <div id="dropResults" class="autocompleteResults"></div>
+
+            
+            <label for="distance" >Distance</label>
+            <input type="number" class="form-control" id="distance" name="distance" placeholder="Distance in km" min="1" required>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+
+            <label for="date">Select Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <!--<button type="submit" ><a href="/quantity"  >Submit</a></button>
+          <p><a class="btn btn-secondary" href="/quantity" target="_blank" role="button" type="submit" >Next</a></p>-->
+          <button type="submit" onclick="validateAndRedirect()">Next</button>
+        </form>
+    </div>
+</section>
+
+
+  
+    <script>
+        // Set the minimum date dynamically to the current date
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+        
+    </script>
+    <script src="autocomplete.js"></script>
+
+</body>
+</html>

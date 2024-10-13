@@ -1,0 +1,187 @@
+<% console.log("Rendering delivery.ejs "); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <style>
+       
+
+        .container {
+           max-width: 600px;
+           height: max-content;
+            
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            
+            
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            text-decoration: none;
+          }
+          
+        
+        body {
+          background-color: #48dbfb;
+          background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%);
+        }
+        .modal {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          z-index: 1;
+      }
+      .delivery{
+        background-image: url("/images/moving-van.jpg");
+      }
+      
+    </style>
+</head>
+<body>
+    <%- include("nav.ejs") %>
+<section class="delivery" >
+    <div class="container  col-10 col-sm-8 col-lg-6">
+        <h2 class="text-center">Attach Vehicle Now</h2>
+        <hr><br>
+        <form action="/delivery" method="post">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"placeholder="Name" required>
+
+          
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+            <div class="row">
+              <div class="col">
+                <label for="State">State </label>
+                <select class="form-select" aria-label="Default select example" name="state" required>
+                  <option selected>Select The State</option>
+                  <option value="UttarPradesh">UttarPradesh</option>
+                  <option value="Panjab">Panjab</option>
+                  <option value="Delhi">Delhi</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="Vehicle">Vehicle </label>
+                <select class="form-select" aria-label="Default select example" name="ve" required>
+                  <option selected>Select The Vehicle</option>
+                  
+                  <option value="2Wheeler">2Wheeler</option>
+                  <option value="4Wheeler">4Wheeler</option>
+                  <option value="Truck">Truch</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="row">
+              <label >Gender</label>
+              <div class="col">
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" value="Male" >
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                  </label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault"  value="Female" >
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                  </label>
+                </div>
+              </div>
+            </div>
+
+
+            <!--<button type="submit" ><a href="/quantity"  >Submit</a></button>
+          <p><a class="btn btn-secondary" href="/quantity" target="_blank" role="button" type="submit" >Next</a></p>-->
+          <button type="submit">Register Now</button>
+        </form>
+    </div>
+   
+</section>
+
+<section class="container "  >
+  <h3 class="display-5 fw-bold text-body-emphasis text-center" style="margin-bottom: 80px;">House Shifting with Best Packers and Movers in Lucknow</h3>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <img class="rounded-circle mx-auto d-block" src="/images/ontimed.png" alt="Generic placeholder image" width="100" height="100">
+      <h2 style="margin-top: 40px;" class="text-center">Regular Trips</h2>
+      <p class="text-center">
+        With our growing presence across multiple cities, we always have our hands full! This means you will never run out of trips.</p>
+      
+     
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="rounded-circle mx-auto d-block" src="/images/paymentd.png" alt="Generic placeholder image" width="100" height="100">
+      <h2 style="margin-top: 40px;" class="text-center">On-Time Payment</h2>
+      <p class="text-center">
+        Be assured to receive all payments on time & get the best in class support, when you attach mini truck with Porter.</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="rounded-circle mx-auto d-block"  src="/images/betterearningd.png" alt="Generic placeholder image" width="100" height="100">
+      <h3 style="margin-top: 40px; " class="text-center">Better Earning</h3>
+      <p class="text-center">
+        Earn more by partnering with the best! Regular trips and efficient service can grow your earnings!</p>
+      
+      
+    </div><!-- /.col-lg-4 -->
+  </div>
+</section>
+
+
+
+<%- include("footer.ejs") %>
+
+
+  
+   
+
+</body>
+</html>
